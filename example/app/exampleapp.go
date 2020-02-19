@@ -1,5 +1,5 @@
 package main
 
-function main(){
+func main(){
 
 }
