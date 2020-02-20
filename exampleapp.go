@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-const VERSION = "0.8"
+const VERSION = "0.10"
 
 type Args struct {
 	GetVersion bool
