@@ -15,3 +15,7 @@
 # vendor/
 
 dist/
+
+
+# node stuff for front-end
+node_modules

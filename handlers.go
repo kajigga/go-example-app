@@ -7,19 +7,22 @@ import (
 	"text/template"
 )
 
-type VersionJSON struct {
-	Version string `json:"version"`
-}
-type HomeJSON struct {
-	Elements  []int  `json:"elements"`
-	PageTitle string `json:"page_title"`
-}
-
 func VersionHandler(w http.ResponseWriter, r *http.Request) {
 	versionJson := &VersionJSON{Version: VERSION}
 	//t, _ := template.ParseFiles("edit.html")
 	//t.Execute(w, p)
 	js, err := json.Marshal(versionJson)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.Write(js)
+}
+
+func TodosHandler(w http.ResponseWriter, r *http.Request) {
+
+	js, err := json.Marshal(AllTodos)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return

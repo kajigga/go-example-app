@@ -1,6 +1,6 @@
-APP_NAME=go-example-app
+APP_NAME=todoer
 
-go-example-app:
+todoer:
 	go build -o dist/${APP_NAME} .
 
 releaser:

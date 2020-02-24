@@ -32,6 +32,7 @@ func main() {
 	mux := http.NewServeMux()
 
 	mux.HandleFunc("/version/", middleware(VersionHandler))
+	mux.HandleFunc("/todos", middleware(TodosHandler))
 	mux.HandleFunc("/", middleware(HomeHandler))
 	log.Fatal(http.ListenAndServe(":"+os.Getenv("APP_PORT"), mux))
 }
